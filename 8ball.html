@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+ <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="8ball.css"/>
+    <title>Magic 8 Ball</title>
+    
+</head>
+
+<body>
+<div id="form">   
+<form id="question" method="post">
+Ask the Magic 8 Ball a Question:<input type="text" name="ask"/>
+<input type="button" id="buttonclick" name="submit" value="Question"/>
+</form>
+</div>
+
+<div id="picture">
+<img src="magic 8 ball.png" alt="8 Ball" width="170%" height="170%">
+</div>
+
+<div id="answeroverlap">
+    <div id="answerpicture" style="display:none">
+    <img src="8ballanswer.png" alt="8 Ball Answer" width="170%" height="170%" ></div>
+    <div id="answer" style="display:none"></div>
+
+
+
+  
+<script>
+var magic8ball= ["It is certain",
+     "It is decidedly so",
+     "Without a doubt",
+     "Yes definitely",
+     "You may rely on it",
+     "As I see it, yes",
+     "Most likely",
+     "Outlook good",
+     "Yes",
+     "Signs point to yes",
+     "Reply hazy try again",
+     "Ask again later",
+     "Better not tell you now",
+     "Cannot predict now",
+     "Concentrate and ask again",
+     "Don't count on it",
+     "My reply is no",
+     "My sources say no",
+     "Outlook not so good",
+     "Very doubtful" ];
+var random = magic8ball[Math.floor(Math.random() * magic8ball.length)];
+    
+$(document).ready(function() {
+  $('input#buttonclick').click(function(){
+    $('form#question').submit();
+    $('div#picture').fadeOut(1500).delay(600);
+    $('div#answerpicture').fadeIn(1800).delay(1000);
+    $('div#answer').fadeIn('slow');
+     $('div#answer').show().text(random);
+
+    
+
+   });
+});
+
+      
+</script>
+
+
+</body>
+
+</html>
